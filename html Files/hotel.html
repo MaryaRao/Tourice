@@ -37,7 +37,7 @@
 </head>
 <style>
   .wrapper .logo {
-      left: -35px;
+      left: -15px;
       height: 105px;
       width: 235px;
   }
@@ -225,18 +225,6 @@
 
 <!-- Book Form Starts here -->
 <section class="book" id="book">
-  <!-- <h1 class="heading">
-    <span>B</span>
-    <span>O</span>
-    <span>O</span>
-    <span>K</span>
-    <span class="space"></span>
-    <span>N</span>
-    <span>O</span>
-    <span>W</span>
-  </h1> -->
-  
-
   <div class="row mt-5">
     <div class="image">
       <img src="../media/WhatsApp_Image_2023-08-09_at_7.04.01_PM-removebg-preview (1).png" alt="">
@@ -245,11 +233,11 @@
     <form action="">
       <div class="inputBox" class="ui-widget">
         <h3>Where To</h3>
-        <input type="text" id="dest" placeholder="Enter Destination" required>
+        <input type="text" id="dest" class="form-control" placeholder="Enter Destination" required>
       </div>
       <div class="inputBox">
         <h3>How many</h3>
-        <input type="number" id="num" placeholder="No. of Guests" required>
+        <input type="number" id="num" class="form-control" placeholder="No. of Guests" required>
       </div>
       <div class="inputBox">
         <h3>Check In</h3>
@@ -259,7 +247,7 @@
         <h3>Check Out</h3>
         <input type="text" class="form-control" id="datePickerOut" placeholder="Select a date">
       </div><br>
-      <a href="https://www.booking.com/index.en-gb.html?label=gen173nr-1BCAEoggI46AdIM1gEaLUBiAEBmAEJuAEXyAEM2AEB6AEBiAIBqAIDuAL0uf-mBsACAdICJGE2Nzc2NDlkLTM5OGYtNGI1My1hMjMzLWY5NGI3MzFkZWFiMtgCBeACAQ&sid=72ef961d93989acb6ad3ff710ae3f7e6&keep_landing=1&sb_price_type=total&" class="bn">Search Hotels</a>
+      <a href="#" class="bn" onclick="message()">Search Hotels</a>
       <style>
         .bn {
           background-color: transparent;
@@ -817,6 +805,14 @@ const sliderContainer = document.querySelector('.slider-container')
     }
   }
 
+  function message() {
+  let inputField = document.querySelector('.form-control');
+    if (inputField.value == '') {
+      alert('Please fill the form properly before submitting!');
+    } else {
+      window.location.href="https://www.booking.com/index.en-gb.html?label=gen173nr-1BCAEoggI46AdIM1gEaLUBiAEBmAEJuAEXyAEM2AEB6AEBiAIBqAIDuAL0uf-mBsACAdICJGE2Nzc2NDlkLTM5OGYtNGI1My1hMjMzLWY5NGI3MzFkZWFiMtgCBeACAQ&sid=72ef961d93989acb6ad3ff710ae3f7e6&keep_landing=1&sb_price_type=total&";
+    }
+  }
 
  
  </script>
