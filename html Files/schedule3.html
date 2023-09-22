@@ -527,7 +527,23 @@
 <!-- Jquery  -->
 <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
 <script>
-  AOS.init();
+    function initializeAOS() {
+            if (window.innerWidth > 768) { // Adjust the screen width threshold as needed
+                AOS.init(); // Initialize AOS if screen width is larger than 768px
+            } else {
+                // Disable AOS animations for smaller screens
+                const aosElements = document.querySelectorAll('[data-aos]');
+                aosElements.forEach(element => {
+                    element.removeAttribute('data-aos');
+                });
+            }
+        }
+
+        // Call the function to initialize or disable AOS animations
+        initializeAOS();
+
+        // You can also listen for window resize events to recheck and update AOS as needed
+        window.addEventListener('resize', initializeAOS);
   // Loader Js --->
   setTimeout(function () {
     $(".loader-wrapper").fadeOut();
