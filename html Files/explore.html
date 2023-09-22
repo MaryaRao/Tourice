@@ -70,7 +70,7 @@
         <!-- <- Navbar Links -> -->
         <ul class="nav-links">
           <label for="cancel-btn" class="btn cancel-btn"><i class="fas fa-times" style="color: white;"></i></label>
-          <li><a href="../index.html" class="desk-items active">HOME</a></li>
+          <li><a href="../index.html" class="desk-items">HOME</a></li>
           <a href="../index.html"><label class="mob-items active">HOME</label></a>
           <li><a href="../html Files/contactus.html" class="desk-items">CONTACT US</a></li>
           <a href="../html Files/contactus.html"><label class="mob-items">CONTACT US</label></a>
@@ -544,6 +544,7 @@
       <div class="col" id="col4">
         <h2>Destination <div class="underline"><span></span></h2>
         <div class="images">
+          
           <div class="row" data-aos="fade-right" style="margin-bottom: 0px;">
             <img src="../media/des1.jpg" alt="Loading!" class="img-1" />
             <img src="../media/des2.jpg" alt="Loading!" class="img-2" />
@@ -639,7 +640,23 @@
   
   
 <script>
-    AOS.init();
+    function initializeAOS() {
+            if (window.innerWidth > 768) { // Adjust the screen width threshold as needed
+                AOS.init(); // Initialize AOS if screen width is larger than 768px
+            } else {
+                // Disable AOS animations for smaller screens
+                const aosElements = document.querySelectorAll('[data-aos]');
+                aosElements.forEach(element => {
+                    element.removeAttribute('data-aos');
+                });
+            }
+        }
+
+        // Call the function to initialize or disable AOS animations
+        initializeAOS();
+
+        // You can also listen for window resize events to recheck and update AOS as needed
+        window.addEventListener('resize', initializeAOS);
   // Loader Js --->
   $(window).on("load", function() {
     $(".loader-wrapper").fadeOut();
